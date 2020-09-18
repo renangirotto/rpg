@@ -1,0 +1,15 @@
+<template>
+  <div>
+      Classes
+  </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>

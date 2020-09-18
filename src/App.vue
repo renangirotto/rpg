@@ -1,6 +1,6 @@
 <template>
   <main class="appRpg">
-    <v-home />
+    <router-view />
   </main>
 </template>
 

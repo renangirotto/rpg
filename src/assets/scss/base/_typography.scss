@@ -27,6 +27,13 @@ button {
     font-size: 16px;
 }
 
+// Error Message
+.errorMessage {
+    display: block;
+    padding: 8px;
+    color: $c-red-200;
+}
+
 // Text/Tags inside modal body
 .c-modal__container__body {
     p {

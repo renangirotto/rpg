@@ -4,13 +4,19 @@
       <c-icon name="logo" />
     </figure>
     <div class="v-home__player">
-      <c-text-field name="playerName" type="text" placeholder="Player name" />
+      <c-text-field
+        fieldName="character"
+        fieldType="text"
+        placeholder="Character name"
+        @value="characterName = $event"
+        :errorMessage="characterError"
+      />
     </div>
     <div class="v-home__action">
       <c-button :action="openModal" text="About this project" color="deepPurple-ghost" />
-      <c-button text="Begin adventure" color="deepPurple" />
+      <c-button :action="validatePlayer" text="Begin adventure" color="deepPurple" />
     </div>
-    <c-modal :toggle="modalActive" v-on:modal-closed="closeModal">
+    <c-modal :toggle="modalActive" @modal-closed="modalActive = $event">
       <template v-slot:header>About this project!</template>
       <template v-slot:body>
         <p>This is study and portifolio project, made with VueJs!</p>
@@ -34,17 +40,31 @@ export default {
   name: "v-home",
   data: () => {
     return {
+      characterName: "",
+      characterError: "",
       modalActive: false,
     };
+  },
+  watch: {
+    characterName: function (newVal) {
+      if (newVal != undefined && newVal != "") {
+        this.characterError = "";
+      }
+    },
   },
   methods: {
     // Change the modal state to open
     openModal: function () {
       this.modalActive = true;
     },
-    // Change the modal state to close
-    closeModal: function () {
-      this.modalActive = false;
+    // Validate player's name
+    validatePlayer: function () {
+      // Redirect to class selection or call error
+      if (this.characterName != undefined && this.characterName != "") {
+        this.$router.push("/classes");
+      } else {
+        this.characterError = "Tell me your character's name!";
+      }
     },
   },
 };

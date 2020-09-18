@@ -40,7 +40,7 @@ export default {
     // Close de modal by changing the data active state and emit that this modal was closed
     closeModal: function () {
       this.active = false;
-      this.$emit("modal-closed");
+      this.$emit("modal-closed", this.active);
     },
   },
 };

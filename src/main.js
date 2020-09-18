@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import router from './router/router'
 import App from './App.vue'
 const app = createApp(App)
 
@@ -20,12 +21,9 @@ import cTextField from './components/c-text-field.vue'
 app.component('c-text-field', cTextField)
 
 // -----------------------------------------------
-// Views -----------------------------------------
+// Rout ------------------------------------------
 // -----------------------------------------------
-
-// Home
-import vHome from './views/v-home.vue'
-app.component('v-home', vHome)
+app.use(router)
 
 // -----------------------------------------------
 // Mount app -------------------------------------
