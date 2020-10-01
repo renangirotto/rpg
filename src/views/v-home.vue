@@ -1,7 +1,7 @@
 <template>
   <div class="v-home">
     <figure class="v-home__logo">
-      <c-icon name="logo" />
+      <c-icon name="ui-logo" />
     </figure>
     <div class="v-home__player">
       <c-text-field
@@ -13,9 +13,10 @@
       />
     </div>
     <div class="v-home__action">
-      <c-button :action="openModal" text="About this project" color="deepPurple-ghost" />
+      <c-button :action="openModal" text="About this project" color="deepPurpleGhost" />
       <c-button :action="validatePlayer" text="Begin adventure" color="deepPurple" />
     </div>
+    <!-- modal about the project -->
     <c-modal :toggle="modalActive" @modal-closed="modalActive = $event">
       <template v-slot:header>About this project!</template>
       <template v-slot:body>
@@ -36,6 +37,9 @@
 </template>
 
 <script>
+// Mutations
+import { mapMutations } from 'vuex'
+
 export default {
   name: "v-home",
   data: () => {
@@ -53,16 +57,21 @@ export default {
     },
   },
   methods: {
+    ...mapMutations(['setCharacterName']),
     // Change the modal state to open
     openModal: function () {
       this.modalActive = true;
     },
     // Validate player's name
     validatePlayer: function () {
-      // Redirect to class selection or call error
+      // Verify if the input is empty
       if (this.characterName != undefined && this.characterName != "") {
-        this.$router.push("/classes");
+        // Commit the character name
+        this.setCharacterName(this.characterName)
+        // Redirect to class selection or call error
+        this.$router.push("classes");
       } else {
+        // Request the error message from input component
         this.characterError = "Tell me your character's name!";
       }
     },
@@ -70,7 +79,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .v-home {
   // D20 dice logo
   @include element(logo) {
@@ -78,7 +87,7 @@ export default {
     margin: 0 auto 32px;
 
     svg {
-      fill: $c-deepPurple-200;
+      fill: $c-vue-green;
     }
   }
 

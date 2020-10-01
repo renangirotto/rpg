@@ -95,6 +95,7 @@ export default {
     pointer-events: none;
   }
 
+  // Actual input tag
   @include element(input) {
     box-sizing: border-box;
     width: 100%;

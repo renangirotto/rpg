@@ -18,7 +18,7 @@ export default {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 16px;
+  padding: 24px;
   background-color: $c-dark-800;
 }
 </style>

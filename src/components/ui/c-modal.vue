@@ -4,7 +4,7 @@
       <header class="c-modal__container__header">
         <slot name="header"></slot>
         <button @click="closeModal" class="c-modal__container__header__close">
-          <c-icon name="close" />
+          <c-icon name="ui-close" />
         </button>
       </header>
       <div class="c-modal__container__body">
@@ -46,7 +46,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .c-modal {
   display: flex;
   justify-content: center;
@@ -66,6 +66,7 @@ export default {
     border-radius: 4px;
     overflow: hidden;
 
+    // Header with title and close button
     @include element(header) {
       box-sizing: border-box;
       display: flex;
@@ -88,10 +89,32 @@ export default {
       }
     }
 
+    // Content of the modal
     @include element(body) {
       box-sizing: border-box;
       padding: 16px;
       background-color: $c-dark-500;
+
+      p {
+        line-height: 27px;
+
+        &:not(:last-child) {
+          padding-bottom: 16px;
+          border-bottom: 1px solid $c-light-900;
+          margin-bottom: 16px;
+        }
+      }
+
+      strong {
+        display: block;
+        margin-bottom: 8px;
+        color: $c-light-900;
+        line-height: 27px;
+      }
+
+      a {
+        color: $c-deepPurple-200;
+      }
     }
   }
 }

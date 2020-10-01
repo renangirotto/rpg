@@ -25,8 +25,7 @@ export default {
 <style lang="scss" scoped>
 .c-button {
   box-sizing: border-box;
-  padding: 12px 16px;
-  border: 4px solid transparent;
+  padding: 16px;
   border-radius: 4px;
   color: $c-light-100;
   cursor: pointer;
@@ -43,12 +42,11 @@ export default {
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 
     &:hover {
-      border-color: $c-deepPurple-300;
-      background-color: $c-deepPurple-200;
+      background-color: $c-deepPurple-300;
     }
   }
 
-  @include modifier(deepPurple-ghost) {
+  @include modifier(deepPurpleGhost) {
     color: $c-deepPurple-200;
   }
 }

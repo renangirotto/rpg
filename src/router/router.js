@@ -1,4 +1,5 @@
-import { createWebHistory, createRouter } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
+const routerHistory = createWebHistory()
 
 // -----------------------------------------------
 // Views -----------------------------------------
@@ -6,15 +7,14 @@ import { createWebHistory, createRouter } from 'vue-router'
 
 // Home
 import vHome from '@/views/v-home.vue'
-// Classes
-const vClasses = import('@/views/v-classes.vue')
+// Class selection
+const vClasses = () => import('@/views/v-classes.vue')
 
 // -----------------------------------------------
 // Router ----------------------------------------
 // -----------------------------------------------
-const history = createWebHistory()
 const router = createRouter({
-    history,
+    history: routerHistory,
     routes: [
         {
             path: '/',
@@ -29,4 +29,4 @@ const router = createRouter({
     ]
 })
 
-export default router;
+export default router

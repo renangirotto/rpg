@@ -1,13 +1,17 @@
 // Font Family import by Google Fonts API
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+// Those styles are to geranal components or classes
+// Specific components styles need to be inside component css
 
 // Set base font family
 html,
 body {
     font-family: Poppins, sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
     font-size: 16px;
+    line-height: 1.2;
     color: $c-light-100;
 }
 
@@ -32,28 +36,4 @@ button {
     display: block;
     padding: 8px;
     color: $c-red-200;
-}
-
-// Text/Tags inside modal body
-.c-modal__container__body {
-    p {
-        line-height: 27px;
-
-        &:not(:last-child) {
-            padding-bottom: 16px;
-            border-bottom: 1px solid $c-light-900;
-            margin-bottom: 16px;
-        }
-    }
-
-    strong {
-        display: block;
-        margin-bottom: 8px;
-        color: $c-light-900;
-        line-height: 27px;
-    }
-
-    a {
-        color: $c-deepPurple-200;
-    }
 }
